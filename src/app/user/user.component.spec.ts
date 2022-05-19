@@ -3,6 +3,9 @@ import { TestBed } from '@angular/core/testing';
 import { UserComponent } from './user.component';
 import { UserService } from './user.service';
 
+// TestBed: Configures and initializes environment for unit testing and provides
+// methods for creating components and services in unit tests.
+
 describe('UserComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -11,6 +14,7 @@ describe('UserComponent', () => {
   });
 
   it('should create the app', () => {
+    // The ComponentFixture is a test harness for interacting with the created component and its corresponding element.
     let fixture = TestBed.createComponent(UserComponent);
     let app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
