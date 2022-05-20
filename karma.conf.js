@@ -25,6 +25,8 @@ module.exports = function (config) {
       suppressAll: true, // removes the duplicated traces
     },
     coverageReporter: {
+      type: "cobertura",
+      file: "code-coverage.xml",
       dir: require("path").join(__dirname, "./coverage/angular-unit-testing"),
       subdir: ".",
       reporters: [{ type: "html" }, { type: "text-summary" }],
@@ -36,6 +38,7 @@ module.exports = function (config) {
         flags: ["--no-sandbox"],
       },
     },
+    coverageReporter: {},
     reporters: ["progress", "kjhtml"],
     port: 9876,
     colors: true,
