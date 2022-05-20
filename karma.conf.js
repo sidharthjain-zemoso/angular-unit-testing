@@ -25,11 +25,13 @@ module.exports = function (config) {
       suppressAll: true, // removes the duplicated traces
     },
     coverageReporter: {
-      type: "cobertura",
-      file: "code-coverage.xml",
       dir: require("path").join(__dirname, "./coverage/angular-unit-testing"),
       subdir: ".",
-      reporters: [{ type: "html" }, { type: "text-summary" }],
+      reporters: [
+        { type: "html" },
+        { type: "text-summary" },
+        { type: "lcov", subdir: "report-lcov" },
+      ],
     },
     browsers: ["Chrome", "ChromeHeadless", "ChromeHeadlessCI"],
     customLaunchers: {
@@ -38,7 +40,6 @@ module.exports = function (config) {
         flags: ["--no-sandbox"],
       },
     },
-    coverageReporter: {},
     reporters: ["progress", "kjhtml"],
     port: 9876,
     colors: true,
