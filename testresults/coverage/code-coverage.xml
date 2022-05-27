@@ -1,0 +1,58 @@
+<?xml version="1.0" ?>
+<!DOCTYPE coverage SYSTEM "http://cobertura.sourceforge.net/xml/coverage-04.dtd">
+<coverage lines-valid="8" lines-covered="8" line-rate="1" branches-valid="0" branches-covered="0" branch-rate="1" timestamp="1652991800441" complexity="0" version="0.1">
+  <sources>
+    <source>/home/sidhaj/Documents/training/Angular/angular-unit-testing</source>
+  </sources>
+  <packages>
+    <package name="app" line-rate="1" branch-rate="1">
+      <classes>
+        <class name="app.component.ts" filename="src/app/app.component.ts" line-rate="1" branch-rate="1">
+          <methods>
+          </methods>
+          <lines>
+            <line number="8" hits="1" branch="false"/>
+            <line number="9" hits="2" branch="false"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+    <package name="app.user" line-rate="1" branch-rate="1">
+      <classes>
+        <class name="user.component.ts" filename="src/app/user/user.component.ts" line-rate="1" branch-rate="1">
+          <methods>
+            <method name="(anonymous_0)" hits="4" signature="()V">
+              <lines>
+                <line number="13" hits="4"/>
+              </lines>
+            </method>
+            <method name="(anonymous_1)" hits="3" signature="()V">
+              <lines>
+                <line number="15" hits="3"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="10" hits="1" branch="false"/>
+            <line number="11" hits="4" branch="false"/>
+            <line number="12" hits="4" branch="false"/>
+            <line number="13" hits="4" branch="false"/>
+            <line number="16" hits="3" branch="false"/>
+          </lines>
+        </class>
+        <class name="user.service.ts" filename="src/app/user/user.service.ts" line-rate="1" branch-rate="1">
+          <methods>
+            <method name="(anonymous_0)" hits="4" signature="()V">
+              <lines>
+                <line number="6" hits="4"/>
+              </lines>
+            </method>
+          </methods>
+          <lines>
+            <line number="2" hits="4" branch="false"/>
+          </lines>
+        </class>
+      </classes>
+    </package>
+  </packages>
+</coverage>

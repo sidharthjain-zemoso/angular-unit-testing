@@ -1,16 +1,22 @@
-import { TestBed } from '@angular/core/testing';
+import { fakeAsync, TestBed, tick, waitForAsync } from '@angular/core/testing';
+import { DataService } from '../shared/data.service';
 
 import { UserComponent } from './user.component';
 import { UserService } from './user.service';
+
+// TestBed: Configures and initializes environment for unit testing and provides
+// methods for creating components and services in unit tests.
 
 describe('UserComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [UserComponent],
+      providers: [DataService],
     });
   });
 
   it('should create the app', () => {
+    // The ComponentFixture is a test harness for interacting with the created component and its corresponding element.
     let fixture = TestBed.createComponent(UserComponent);
     let app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
@@ -42,4 +48,40 @@ describe('UserComponent', () => {
       app.user.name
     );
   });
+
+  it("shouldn't fetch data successfully if not called asynchronously", () => {
+    let fixture = TestBed.createComponent(UserComponent);
+    let app = fixture.debugElement.componentInstance;
+    let dataService = fixture.debugElement.injector.get(DataService);
+    let spy = spyOn(dataService, 'getDetails').and.returnValue(
+      Promise.resolve('Data')
+    );
+    fixture.detectChanges();
+    expect(app.data).toBe(undefined);
+  });
+
+  it('should fetch data successfully if called asynchronously', waitForAsync(() => {
+    let fixture = TestBed.createComponent(UserComponent);
+    let app = fixture.debugElement.componentInstance;
+    let dataService = fixture.debugElement.injector.get(DataService);
+    let spy = spyOn(dataService, 'getDetails').and.returnValue(
+      Promise.resolve('Data')
+    );
+    fixture.detectChanges();
+    fixture.whenStable().then(() => {
+      expect(app.data).toBe('Data');
+    });
+  }));
+
+  it('should fetch data successfully if called asynchronously', fakeAsync(() => {
+    let fixture = TestBed.createComponent(UserComponent);
+    let app = fixture.debugElement.componentInstance;
+    let dataService = fixture.debugElement.injector.get(DataService);
+    let spy = spyOn(dataService, 'getDetails').and.returnValue(
+      Promise.resolve('Data')
+    );
+    fixture.detectChanges();
+    tick();
+    expect(app.data).toBe('Data');
+  }));
 });
