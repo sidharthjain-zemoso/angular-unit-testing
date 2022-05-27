@@ -11,6 +11,7 @@ describe('UserComponent', () => {
   beforeEach(() => {
     TestBed.configureTestingModule({
       declarations: [UserComponent],
+      providers: [DataService],
     });
   });
 
